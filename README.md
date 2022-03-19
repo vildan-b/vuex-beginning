@@ -1,4 +1,3 @@
-# bolum-18-test1
 
 ## Project setup
 ```
