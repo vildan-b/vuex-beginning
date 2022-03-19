@@ -6,13 +6,13 @@
  <button class="btn btn-success" @click="increment">+ Plus</button>
     <button class="btn btn-danger" @click="decrement">- Minus</button>
     <hr>
-   <button class="btn btn-success" @click="incrementAsync">+ Async Plus</button>
+   <button class="btn btn-success" @click="incAsync">+ Async Plus</button>
     <hr>
   </div>
 </template>
 
 <script>
-import { mapMutations } from "vuex"
+import { mapMutations, mapActions } from "vuex"
 /* eslint no-use-before-define: 2 */
   // eslint-disable-next-line
   /* eslint-disable */
@@ -25,16 +25,21 @@ export default {
       "increaseCounter",
       "decreaseCounter"
     ]),
-    increment(){
-      this.$store.dispatch("increment")
-    },
-        decrement(){
-      this.$store.dispatch("decrement")
-    },
+    ...mapActions([
+      "increment",
+      "decrement",
+      "incAsync"
+    ])
+    // increment(){
+    //   this.$store.dispatch("increment")
+    // },
+    //     decrement(){
+    //   this.$store.dispatch("decrement")
+    // },
 
-        incrementAsync(){
-      this.$store.dispatch("incAsync")
-    },
+    //     incrementAsync(){
+    //   this.$store.dispatch("incAsync")
+    // },
  
     // incrementCounter(){
     //   // this.$emit("counterEvent", 1);
