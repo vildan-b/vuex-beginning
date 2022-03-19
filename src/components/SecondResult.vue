@@ -1,22 +1,30 @@
 <template>
   <div>
-    <p class="counter-container"> Sayaç : {{ counter }}</p>
+    <p class="counter-container"> Counter : {{ counter }}</p>
+        <p class="counter-container"> number of clicks : {{ stringCounter }}</p>
+
   </div>
 </template>
 <script>
 /* eslint no-use-before-define: 2 */
   // eslint-disable-next-line
   /* eslint-disable */
+  import { mapGetter } from "vuex";
+  
   export default {
     name: 'Secondresult',
 
     computed: {
       counter(){
-        return this.$store.state.counter * 2;
-      }
-    }
+        // return this.$store.state.counter * 2;
+        return this.$store.getters.getDoubleCounter;
+    },
+         stringCounter(){
+        // return this.$store.state.counter * 2;
+        return this.$store.getters.getStringCounter;
+    },
   }
-
+  }
 </script>
 <style scoped>
   .counter-container{
