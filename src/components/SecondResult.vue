@@ -1,7 +1,7 @@
 <template>
   <div>
-    <p class="counter-container"> Counter : {{ counter }}</p>
-        <p class="counter-container"> number of clicks : {{ stringCounter }}</p>
+    <p class="counter-container"> Counter : {{ getDoubleCounter }}</p>
+        <p class="counter-container"> number of clicks : {{ getStringCounter }}</p>
 
   </div>
 </template>
@@ -9,21 +9,20 @@
 /* eslint no-use-before-define: 2 */
   // eslint-disable-next-line
   /* eslint-disable */
-  import { mapGetter } from "vuex";
+  import { mapGetters } from "vuex";
   
   export default {
     name: 'Secondresult',
 
     computed: {
-      counter(){
-        // return this.$store.state.counter * 2;
-        return this.$store.getters.getDoubleCounter;
-    },
-         stringCounter(){
-        // return this.$store.state.counter * 2;
-        return this.$store.getters.getStringCounter;
-    },
-  }
+      ...mapGetters([
+      'getDoubleCounter',
+      'getStringCounter'
+    ]),
+    customProp(){
+      
+    }
+    }
   }
 </script>
 <style scoped>
