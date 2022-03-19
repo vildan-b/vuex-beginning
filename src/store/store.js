@@ -14,5 +14,10 @@ export const store = new Vuex.Store({
         getStringCounter(state){
             return "clicked " + state.counter + " times";
         }
+    },
+    mutations : {
+        updateCounter(state , value){
+            state.counter += value;
+        }
     }
 });
