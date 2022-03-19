@@ -6,7 +6,7 @@
  <button class="btn btn-success" @click="increment">+ Plus</button>
     <button class="btn btn-danger" @click="decrement">- Minus</button>
     <hr>
-   <button class="btn btn-success" @click="incAsync">+ Async Plus</button>
+   <button class="btn btn-success" @click="incAsync({time : 1000})">+ Async Plus</button>
     <hr>
   </div>
 </template>

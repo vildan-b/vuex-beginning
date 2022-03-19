@@ -2,7 +2,8 @@
   <div>
     <p class="counter-container"> Counter : {{ getDoubleCounter }}</p>
         <p class="counter-container"> number of clicks : {{ getStringCounter }}</p>
-
+<input type="text"  v-model="value" > 
+<p> Value : {{ value }}</p>
   </div>
 </template>
 <script>
@@ -19,8 +20,13 @@
       'getDoubleCounter',
       'getStringCounter'
     ]),
-    customProp(){
-      
+    value : {
+      get(){
+                  return this.$store.getters.getValue;
+
+      }, set(value){
+        this.$store.dispatch("setValueData", value);
+      }
     }
     }
   }
