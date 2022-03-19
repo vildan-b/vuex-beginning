@@ -1,6 +1,9 @@
 import Vue from "vue";
 import Vuex from "vuex";
 import  counter  from "./modules/counter"
+import * as mutations from './mutations'
+ import * as getters from './getters'
+ import * as actions from './actions'
 
 Vue.use(Vuex);
 
@@ -9,36 +12,9 @@ export const store = new Vuex.Store({
  
         value : 0
     },
-    getters: {
-        
-        getValue(state){
-            return state.value;
-        }
-    },
-    mutations : {
-       
-        setValue(state , payload){
-            state.value = payload;
-        }
-    },
-    actions :{
-        increment({commit}){
-            commit("increaseCounter")
-
-        },
-        decrement({commit}) {
-            commit("decreaseCounter")
-        },
-        incAsync({commit} , payload){
-            setTimeout(() => {
-                commit("increaseCounter")
-            }, payload.time)
-
-        },
-        setValueData({commit} , payload) {
-                commit("setValue", payload);
-        }
-    },
+    getters,
+    mutations ,
+    actions,
     modules : {
         counter
     }
